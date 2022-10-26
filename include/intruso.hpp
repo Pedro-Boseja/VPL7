@@ -7,13 +7,12 @@
 
 class Intruso {
     private:
-        std::map<char, std::vector<int>> *_conjunto_numeros;
-        std::string *_senha_vazada;
+        std::vector<std::vector<int>> _vazou_num;
+        std::vector<char> _vazou_char;
 
     public:
-        void set_senha_vazada(std::map<char, std::vector<int>> conjunto_numeros,
-                                                std::string senha_vazada);
-        std::vector<int> crack_senha();
+        void set_senha_vazada(std::string vazou);
+        std::string crack_senha();
 };
 
 #endif
