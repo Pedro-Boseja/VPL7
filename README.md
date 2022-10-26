@@ -12,15 +12,17 @@ Para isso, implemente uma classe Intruso capaz de:
     Uma função crack_senha() que retorna uma sequência de 6 dígitos com a senha do cliente com base nas informações vazadas. As entradas de teste garantem que é possível adivinhar a senha com o conjunto fornecido.
 
 Exemplo:
-Entrada:
-2
-1 7 3 9 0 8 5 6 2 4 B C E A E B
-9 0 7 5 8 4 6 2 3 1 E C C B D A
 
-Saída:
-3 8 4 7 2 9
+    Entrada:
+    2
+    1 7 3 9 0 8 5 6 2 4 B C E A E B
+    9 0 7 5 8 4 6 2 3 1 E C C B D A
+    
+    Saída:
+    3 8 4 7 2 9
 
 Solução:
-    1. Usar um array de map<char, vector> para armazenar a associação entre letras e números dada pelo caixa eletrônico, sendo as letras as chaves;
-    2. Usar um array de string para armazenar a senha digitada;
+
+    1. Usar um array de map<char, vector> para armazenar a associação entre letras e números dada pelo caixa eletrônico, sendo as letras as chaves.
+    2. Usar um array de string para armazenar a senha digitada.
     3. Na função crack_senha() será criado um array de vetores (matriz nx12), que irá armazenar os dois números correspondentes a cada letra na ordem em que a senha foi digitada. (Isso será feito dentro de um for: será chamado o primeiro caracter da senha e esse será comparado com as chaves do map, aquela que for correspondente irá ter os dois números associados a ela depositados na matriz criada). Depois irá se comparar as linhas das matrizes de duas em duas colunas, e os números que forem iguais nessas duas seram armazenados em um novo array, que será a senha numérica.
