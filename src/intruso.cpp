@@ -4,59 +4,30 @@
 #include <vector>
 #include <map>
 
+void Intruso::set_senha_vazada(std::string vazou) {}
+
 std::string Intruso::crack_senha() {
     std::string senha {};
-    std::map<char, int> chave;
-    int i = 0, j = 0;
-    bool s = 0;
-    //Compara os números de dois a dois e coloca o número que for igual
-    //no map associado a uma letra;
-    for (int i = 0; i<(_vazou_num.size() - 1); i += 2){
-        for (int j = 0; j<2; j++){
-            for (int k = 0; k<2; k++){
-                if (_vazou_num[i][j] == _vazou_num[i+1][k]){ chave['A'] = _vazou_num[i][j]; s=1;}
-                if (s == 1) {break;}
+    std::vector<int*> suposta_senha;
+    int i = 0;
+    for (int t = 0; t < 6; t++){
+        for (auto it = _vazou_chave[t].begin(); it != _vazou_chave[t].end(); it++){
+            if (_vazou_senha[t][i] == it->first){
+                if (suposta_senha.empty()) 
+                    suposta_senha[t] = it->second;
+                break;
             }
-            if (s == 1) {break;}
-        }
-        s = 0;
-        for (int j = 2; j<4; j++){
-            for (int k = 2; k<4; k++){
-                if (_vazou_num[i][j] == _vazou_num[i+1][k]){ chave['B'] = _vazou_num[i][j]; s=1;}
-                if (s == 1) {break;}
-            }
-            if (s == 1) {break;}
-        }
-        s = 0;
-        for (int j = 4; j<6; j++){
-            for (int k = 4; k<6; k++){
-                if (_vazou_num[i][j] == _vazou_num[i+1][k]){ chave['C'] = _vazou_num[i][j]; s=1;}
-                if (s == 1) {break;}
-            }
-            if (s == 1) {break;}
-        }
-        s = 0;
-        for (int j = 6; j<8; j++){
-            for (int k = 6; k<8; k++){
-                if (_vazou_num[i][j] == _vazou_num[i+1][k]){ chave['D'] = _vazou_num[i][j]; s=1;}
-                if (s == 1) {break;}
-            }
-            if (s == 1) {break;}
-        }
-        s = 0;
-        for (int j = 8; j<10; j++){
-            for (int k = 8; k<10; k++){
-                if (_vazou_num[i][j] == _vazou_num[i+1][k]){ chave['E'] = _vazou_num[i][j]; s=1;}
-                if (s == 1) {break;}
-            }
-            if (s == 1) {break;}
+            i += 1;
         }
     }
-    for (int i = 0; i<6; i++){        //Percorre o map para formar a senha numérica
-        for (auto it = chave.begin(); it != chave.end(); it++){
-            if (_vazou_char[i] == it->first){
-                senha += it->second;
-                break;
+    for (int t = 0; t < 6; t++){
+        int qtde_senhas = suposta_senha.size();
+        for (int i = 0; i < 6*(qtde_senhas-1); i++){
+            for (int j = 0; j < 2; j++){
+                if (suposta_senha[i][j] == suposta_senha[i+6][j]){
+                    senha += char (suposta_senha[i][j]);
+                    break;
+                }
             }
         }
     }

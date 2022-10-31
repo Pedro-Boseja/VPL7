@@ -7,8 +7,8 @@
 
 class Intruso {
     private:
-        std::vector<std::vector<int>> _vazou_num;
-        std::vector<char> _vazou_char;
+        std::vector<std::map<char, int*>> _vazou_chave;
+        std::vector<std::string> _vazou_senha;
 
     public:
         void set_senha_vazada(std::string vazou);
