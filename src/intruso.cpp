@@ -4,7 +4,12 @@
 #include <vector>
 #include <map>
 
-void Intruso::set_senha_vazada(std::string vazou) {}
+void Intruso::set_senha_vazada(std::string vazou) 
+{
+    //recebe a string
+    //lê a string
+    //separa os elementos e letra num map
+}
 
 std::string Intruso::crack_senha() {
     std::string senha {};
