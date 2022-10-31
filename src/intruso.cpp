@@ -9,6 +9,9 @@ void Intruso::set_senha_vazada(std::string vazou)
     //recebe a string
     //lê a string
     //separa os elementos e letra num map
+
+    std::vector<std::map<char, int*>> _vazou_chave;
+    std::vector<std::string> _vazou_senha;    
 }
 
 std::string Intruso::crack_senha() {
