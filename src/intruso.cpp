@@ -27,7 +27,6 @@ void Intruso::set_senha_vazada(std::string vazou)
     {
         if(_vazou_chave[i].empty())
         {
-            for(int j = 0; j < 10; j++)
             {
                 
             }
