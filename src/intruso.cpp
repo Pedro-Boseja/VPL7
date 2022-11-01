@@ -27,9 +27,15 @@ void Intruso::set_senha_vazada(std::string vazou)
     {
         if(_vazou_chave[i].empty())
         {
+            std::map<char, int*> ponte;
+            char c = 'A';
+            for(int j = 0; j < 10; j+=2)
             {
-                
+                int nums[2] = {j, j+1};
+                ponte[c] = nums;
+                c++;
             }
+            _vazou_chave.push_back(ponte);
         }
         else i++;
     }
