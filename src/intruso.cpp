@@ -6,12 +6,35 @@
 
 void Intruso::set_senha_vazada(std::string vazou) 
 {
-    //recebe a string
-    //lê a string
-    //separa os elementos e letra num map
 
-    std::vector<std::map<char, int*>> _vazou_chave;
-    std::vector<std::string> _vazou_senha;    
+    for (int i = 0; i < 10; i++)
+    {
+        if(_vazou_senha[i].empty())
+        {
+            int k = 10;
+            std::string ponte;
+            for(int j = 0; j < 6; j++)
+            {
+                ponte[j] = vazou[k];
+                k++;  
+            }
+            _vazou_senha.push_back(ponte);
+        }
+        else i++;
+    }
+    
+    for (int i = 0; i < 10; i++)
+    {
+        if(_vazou_chave[i].empty())
+        {
+            for(int j = 0; j < 10; j++)
+            {
+                
+            }
+        }
+        else i++;
+    }
+    
 }
 
 std::string Intruso::crack_senha() {
