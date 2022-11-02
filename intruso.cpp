@@ -5,37 +5,48 @@
 #include <map>
 #include <iostream>
 
-void Intruso::set_senha_vazada(std::string vazou) 
-{
-    
-    //std::cout<<"lugar1"<<std::endl;
-    
+void Intruso::set_senha_vazada(std::string vazou) {
     int k = 10;
-    std::string ponte;
-    for(int j = 0; j < 6; j++)
-    {
+    char ponte[6];
+    for (int j = 0; j < 6; j++) {
         ponte[j] = vazou[k];
+        //std::cout << ponte[j] << std::endl;
+        //std::cout << vazou[k] << std::endl;
         k++;  
     }
+    
     _vazou_senha.push_back(ponte);
+    //std::cout << "ponto0\n";
+    //for(auto it = _vazou_senha.begin(); it < _vazou_senha.end(); it++){
+    //    std::cout << "ponto1\n";
+    //    std::cout << (*it)[0] << std::endl;
+    //    std::cout << "ponto3\n";
+    //}
+    //std::cout << "ponto4\n";
     
-    //std::cout<<"lugar2"<<std::endl;
-    
+    // Verificado OK
+   
     std::map<char, int*> passarela;
     char c = 'A';
-    for(int j = 0; j < 10; j+=2)
-    {
-        int nums[2] = {j, j+1};
+    //std::cout << "ponto0\n";
+    for (int j = 0; j < 10; j+=2){
+        //std::cout << "ponto1\n";
+        int nums[2]; 
+        nums[0] =  (int(vazou[j]) - 48); nums[1] = (int(vazou[j+1]) - 48);
         passarela[c] = nums;
+        //std::cout << passarela[c][0] << " " << nums[0] << std::endl;
+        //std::cout << "ponto2\n";
         c++;
     }
-    _vazou_chave.push_back(passarela);
+    //std::cout << "ponto3\n";
     
-    //std::cout<<"lugar3"<<std::endl;
-    
+    // Verificado OK
 }
 
 std::string Intruso::crack_senha() {
+    for (int i=0; i<_vazou_senha.size(); i++){
+        std::cout << _vazou_senha[i] << std::endl;
+    }
     std::string senha {};
     std::vector<int*> suposta_senha;
     int i = 0;
