@@ -44,20 +44,38 @@ void Intruso::set_senha_vazada(std::string vazou) {
     // Verificado OK
 }
 
-std::string Intruso::crack_senha() {
+td::string Intruso::crack_senha() {
+    //std::cout << "ponto0\n";
+    //for(auto it = _vazou_senha.begin(); it < _vazou_senha.end(); it++){
+    //    std::cout << "ponto1\n";
+    //    for (int i = 0; i < 6; i++){
+    //        std::cout << (*it)[i];
+    //    }
+    //    std::cout << "/n";
+    //    std::cout << "ponto3\n";
+    //}2
     std::string senha {};
     std::vector<int*> suposta_senha;
     int i = 0;
+    std::cout << "ponto0\n";
     for (int t = 0; t < 6; t++){
-        for (auto it = _vazou_chave[t].begin(); it != _vazou_chave[t].end(); it++){
-            if (_vazou_senha[t][i] == it->first){
+        std::map<char, int*> chave;
+        chave = _vazou_chave[t];
+        std::cout << "ponto1\n";
+        char k = 'A';
+        for (auto it = chave.begin(); it != chave.end(); it++){
+            std::cout << "ponto2\n";
+            std::cout << _vazou_senha[t][i] << std::endl;
+            if (_vazou_senha[t][i] == k){
+                std::cout << "ponto3\n";
                 if (suposta_senha.empty()) 
                     suposta_senha[t] = it->second;
                 break;
             }
-            i += 1;
+            else {k+=1; i += 1;}
         }
     }
+    std::cout << "ponto4\n";
     for (int t = 0; t < 6; t++){
         int qtde_senhas = suposta_senha.size();
         for (int i = 0; i < 6*(qtde_senhas-1); i++){
