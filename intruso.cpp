@@ -44,7 +44,7 @@ void Intruso::set_senha_vazada(std::string vazou) {
     // Verificado OK
 }
 
-td::string Intruso::crack_senha() {
+std::string Intruso::crack_senha() {
     //std::cout << "ponto0\n";
     //for(auto it = _vazou_senha.begin(); it < _vazou_senha.end(); it++){
     //    std::cout << "ponto1\n";
@@ -54,11 +54,13 @@ td::string Intruso::crack_senha() {
     //    std::cout << "/n";
     //    std::cout << "ponto3\n";
     //}2
+    std::cout << _vazou_senha[0][0] << std::endl;
     std::string senha {};
     std::vector<int*> suposta_senha;
     int i = 0;
     std::cout << "ponto0\n";
     for (int t = 0; t < 6; t++){
+        std::cout << _vazou_senha[0][0] << std::endl;
         std::map<char, int*> chave;
         chave = _vazou_chave[t];
         std::cout << "ponto1\n";
