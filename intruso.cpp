@@ -62,6 +62,7 @@ std::string Intruso::crack_senha() {
             if (_vazou_senha[t][i] == k){
                 std::cout << "ponto3\n";
                 suposta_senha.push_back(chave.at(j));
+                std::cout << chave.at(j)[0];
                 chave = {};
                 break;
             }
@@ -70,15 +71,21 @@ std::string Intruso::crack_senha() {
     }
     //std::cout << "ponto4\n";
     for (int t = 0; t < 6; t++){
+        std::cout << "ponto1\n";
         int qtde_senhas = suposta_senha.size();
         for (int i = 0; i < 6*(qtde_senhas-1); i++){
+            std::cout << "ponto2\n";
             for (int j = 0; j < 2; j++){
+                std::cout << "ponto3\n";
+                std::cout << suposta_senha[i][j] << " " << suposta_senha[i+6][j] << "\n";
                 if (suposta_senha[i][j] == suposta_senha[i+6][j]){
                     senha += char (suposta_senha[i][j]);
+                    std::cout << "ponto4\n";
                     break;
                 }
             }
         }
     }
+    std::cout << "ponto5\n";
     return senha;
 }
