@@ -43,17 +43,29 @@ std::string Intruso::crack_senha() {
         }
     }
     // Verificado OK
-    
-    for (int t = 0; t < 6; t++){
+
+    for (int t = 0; t < 6; t++)
+    {
+        //std::cout << "ponto0\n";
         int qtde_senhas = suposta_senha.size();
-        for (int i = 0; i < 6*(qtde_senhas-1); i++){
-            for (int j = 0; j < 2; j++){
-                if (suposta_senha[i][j] == suposta_senha[i+6][j]){
+        for (int i = 0; i < 6*(qtde_senhas-1); i++)
+        {
+            //std::cout << "ponto1\n";
+            for (int j = 0; j < 2; j++)
+            {
+                //std::cout << "ponto2\n";
+                if (suposta_senha[i][j] == suposta_senha[i+6][j])
+                {
+                    //std::cout << "ponto3\n";
                     senha += char (suposta_senha[i][j]);
                     break;
                 }
+                //std::cout << "ponto4\n";
             }
+            //std::cout << "ponto5\n";
         }
+        //std::cout << "ponto6\n";
     }
+    //std::cout << "ponto7\n";
     return senha;
 }
