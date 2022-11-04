@@ -30,18 +30,21 @@ void Intruso::set_senha_vazada(std::string vazou) {
 
 std::string Intruso::crack_senha() {
     std::string senha {};
+    std::cout << "ponto0\n";
     std::vector<std::vector<int>> suposta_senha;
     int i = 0;
     for (int t = 0; t < _vazou_senha.size(); t++){
+        std::cout << "ponto1\n";
         std::map<char, std::vector<int>> chave;
         chave = _vazou_chave[t];
         char k = 'A';
         for (char j = 'A'; j <= 'E'; j++){
-            //std::cout << "ponto2\n";
+            std::cout << "ponto2\n";
             //std::cout << _vazou_senha[t][i] << std::endl;
             if (_vazou_senha[t][i] == k){
-                //std::cout << "ponto3\n";
+                std::cout << "ponto3\n";
                 suposta_senha.push_back(chave.at(j));
+                std::cout << suposta_senha[t][0] << suposta_senha[t][1] << std::endl;
                 //std::cout << chave.at(j)[0];
                 chave = {};
                 break;
@@ -49,27 +52,28 @@ std::string Intruso::crack_senha() {
             else {k += 1; i += 1;}
         }
     }
+    std::cout << "ponto4\n";
     // Verificado OK
 
     for (int t = 0; t < 6; t++){
-        //std::cout << "ponto1\n";
+        std::cout << "ponto5\n";
         int qtde_senhas = suposta_senha.size();
         for (int i = 0; i < 6*(qtde_senhas-1); i++){
-            //std::cout << "ponto2\n";
+            std::cout << "ponto6\n";
             for (int j = 0; j < 2; j++){
-                //std::cout << "ponto3\n";
-                //std::cout << suposta_senha[i][j] << " " << suposta_senha[i+6][j] << "\n";
+                std::cout << "ponto7\n";
+                std::cout << suposta_senha[i][j] << " " << suposta_senha[i+6][j] << "\n";
                 if (suposta_senha[i][j] == suposta_senha[i+6][j]){
                     senha += char (suposta_senha[i][j]);
-                    //std::cout << "ponto4\n";
+                    std::cout << "ponto8\n";
                     break;
                 }
-                //std::cout << "ponto4\n";
+                std::cout << "ponto9\n";
             }
-            //std::cout << "ponto5\n";
+            std::cout << "ponto10\n";
         }
-        //std::cout << "ponto6\n";
+        std::cout << "ponto11\n";
     }
-    std::cout << "ponto5\n";
+    std::cout << "ponto12\n";
     return senha;
 }
