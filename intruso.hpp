@@ -15,4 +15,6 @@ class Intruso {
         std::string crack_senha();
 };
 
+//sedrtfyguhijk
+
 #endif
